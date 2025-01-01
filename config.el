@@ -78,3 +78,8 @@
 (remove-hook 'doom-first-input-hook #'evil-snipe-mode)
 (evil-define-key 'normal 'global (kbd "s") 'avy-goto-char-timer)
 (setq confirm-kill-emacs nil)
+
+(define-key input-decode-map [(control ?i)] [control-i])
+(define-key input-decode-map [(control ?I)] [(shift control-i)])
+(map! :map 'evil-motion-state-map "C-i" nil)
+(define-key evil-motion-state-map [control-i] 'evil-jump-forward)
