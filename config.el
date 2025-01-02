@@ -29,6 +29,8 @@
 ;; refresh your font settings. If Emacs still can't find your font, it likely
 ;; wasn't installed correctly. Font issues are rarely Doom issues!
 
+(setq doom-font (font-spec :family "JetBrains Mono Nerd Font" :size 18))
+
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
@@ -81,8 +83,6 @@
 (remove-hook 'doom-first-input-hook #'evil-snipe-mode)
 (evil-define-key 'normal 'global (kbd "s") 'avy-goto-char-timer)
 (setq confirm-kill-emacs nil)
-
-(map! :map 'evil-motion-state-map "C-'" 'evil-jump-forward)
 
 (map! :map 'evil-motion-state-map "H" '+tabs:previous-or-goto)
 (map! :map 'evil-motion-state-map "L" '+tabs:next-or-goto)
