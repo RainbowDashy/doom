@@ -75,11 +75,14 @@
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
 
+(require 'term-keys)
+(term-keys-mode t)
+
 (remove-hook 'doom-first-input-hook #'evil-snipe-mode)
 (evil-define-key 'normal 'global (kbd "s") 'avy-goto-char-timer)
 (setq confirm-kill-emacs nil)
 
-(define-key input-decode-map [(control ?i)] [control-i])
-(define-key input-decode-map [(control ?I)] [(shift control-i)])
-(map! :map 'evil-motion-state-map "C-i" nil)
-(define-key evil-motion-state-map [control-i] 'evil-jump-forward)
+(map! :map 'evil-motion-state-map "C-'" 'evil-jump-forward)
+
+(map! :map 'evil-motion-state-map "H" '+tabs:previous-or-goto)
+(map! :map 'evil-motion-state-map "L" '+tabs:next-or-goto)
