@@ -77,9 +77,6 @@
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
 
-(require 'term-keys)
-(term-keys-mode t)
-
 (remove-hook 'doom-first-input-hook #'evil-snipe-mode)
 (evil-define-key 'normal 'global (kbd "s") 'avy-goto-char-timer)
 (setq confirm-kill-emacs nil)
