@@ -82,7 +82,7 @@
 
 (setq confirm-kill-emacs nil)
 
-(setq! 'evil-snipe-scope 'visible)
+(setq! evil-snipe-scope 'visible)
 
 (map! :map 'evil-motion-state-map "H" '+tabs:previous-or-goto)
 (map! :map 'evil-motion-state-map "L" '+tabs:next-or-goto)
