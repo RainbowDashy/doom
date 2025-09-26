@@ -29,7 +29,7 @@
 ;; refresh your font settings. If Emacs still can't find your font, it likely
 ;; wasn't installed correctly. Font issues are rarely Doom issues!
 
-(setq doom-font (font-spec :family "JetBrainsMono NF" :size 17))
+(setq doom-font (font-spec :family "VictorMono Nerd Font" :size 17))
 
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
@@ -77,9 +77,35 @@
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
 
-(remove-hook 'doom-first-input-hook #'evil-snipe-mode)
-(evil-define-key 'normal 'global (kbd "s") 'avy-goto-char-timer)
+;; (remove-hook 'doom-first-input-hook #'evil-snipe-mode)
+;; (evil-define-key 'normal 'global (kbd "S") 'evil-avy-goto-char-2)
+
 (setq confirm-kill-emacs nil)
+
+(setq! 'evil-snipe-scope 'visible)
 
 (map! :map 'evil-motion-state-map "H" '+tabs:previous-or-goto)
 (map! :map 'evil-motion-state-map "L" '+tabs:next-or-goto)
+
+(use-package! claude-code-ide
+  :bind ("C-'" . claude-code-ide-menu) ; Set your favorite keybinding
+  :config
+  (claude-code-ide-emacs-tools-setup)) ; Optionally enable Emacs MCP tools
+
+(setq claude-code-ide-cli-extra-flags "--dangerously-skip-permissions")
+
+(use-package! blamer
+  ;; :bind (("s-i" . blamer-show-commit-info))
+  :defer 20
+  :custom
+  (blamer-idle-time 0.3)
+  (blamer-min-offset 70)
+  (blamer-prettify-time-p nil)
+  (blamer-max-commit-message-length 100)
+  :custom-face
+  (blamer-face ((t :foreground "#7a88cf"
+                   :background nil
+                   :height 140
+                   :italic t)))
+  :config
+  (global-blamer-mode 1))
