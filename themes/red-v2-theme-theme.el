@@ -440,12 +440,29 @@
 ;; ========================================
 ;; EDIFF
 ;; ========================================
-`(ediff-current-diff-A ((t (:background ,"#3a1a1a" :foreground ,red-bright))))
-`(ediff-current-diff-B ((t (:background ,"#1a3a1a" :foreground ,green))))
-`(ediff-current-diff-C ((t (:background ,"#3a3a1a" :foreground ,yellow))))
-`(ediff-fine-diff-A ((t (:background ,red-bright :foreground ,color0 :weight bold))))
-`(ediff-fine-diff-B ((t (:background ,green :foreground ,color0 :weight bold))))
-`(ediff-fine-diff-C ((t (:background ,yellow :foreground ,color0 :weight bold))))
+;; Current diff regions
+`(ediff-current-diff-A ((t (:background ,"#3a1a1a" :foreground ,red-bright :extend t))))
+`(ediff-current-diff-B ((t (:background ,"#1a3a1a" :foreground ,green :extend t))))
+`(ediff-current-diff-C ((t (:background ,"#3a3a1a" :foreground ,yellow :extend t))))
+`(ediff-current-diff-Ancestor ((t (:background ,"#2a2a3a" :foreground ,blue :extend t))))
+
+;; Fine (word-level) differences within current diff regions
+`(ediff-fine-diff-A ((t (:background ,red-bright :foreground ,color0 :weight bold :extend t))))
+`(ediff-fine-diff-B ((t (:background ,green :foreground ,color0 :weight bold :extend t))))
+`(ediff-fine-diff-C ((t (:background ,yellow :foreground ,color0 :weight bold :extend t))))
+`(ediff-fine-diff-Ancestor ((t (:background ,blue :foreground ,color0 :weight bold :extend t))))
+
+;; Even diff regions (non-current differences)
+`(ediff-even-diff-A ((t (:background ,color2 :foreground ,gray-light :extend t))))
+`(ediff-even-diff-B ((t (:background ,color2 :foreground ,gray-light :extend t))))
+`(ediff-even-diff-C ((t (:background ,color2 :foreground ,gray-light :extend t))))
+`(ediff-even-diff-Ancestor ((t (:background ,color2 :foreground ,gray-light :extend t))))
+
+;; Odd diff regions (non-current differences, alternating style)
+`(ediff-odd-diff-A ((t (:background ,bg-darker :foreground ,gray-mid :extend t))))
+`(ediff-odd-diff-B ((t (:background ,bg-darker :foreground ,gray-mid :extend t))))
+`(ediff-odd-diff-C ((t (:background ,bg-darker :foreground ,gray-mid :extend t))))
+`(ediff-odd-diff-Ancestor ((t (:background ,bg-darker :foreground ,gray-mid :extend t))))
 
 
 ;; ========================================
