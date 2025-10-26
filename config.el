@@ -109,3 +109,5 @@
                    :italic t)))
   :config
   (global-blamer-mode 1))
+
+(after! lispyville (setq! lispy-no-space t))
