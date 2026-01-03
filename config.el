@@ -112,10 +112,10 @@
 
 (after! lispyville (setq! lispy-no-space t))
 
-(setq! sly-default-lisp 'sbcl
-       sly-lisp-implementations '((sbcl  ("vend" "repl" "sbcl")  :coding-system utf-8-unix)
-                                  (ecl   ("vend" "repl" "ecl")   :coding-system utf-8-unix)
-                                  (abcl  ("vend" "repl" "abcl")  :coding-system utf-8-unix)
-                                  (clasp ("vend" "repl" "clasp") :coding-system utf-8-unix)))
-
-(setq! sly-complete-symbol-function 'sly-flex-completions)
+(after! sly
+  (setq! sly-default-lisp 'sbcl
+         sly-complete-symbol-function 'sly-flex-completions
+         sly-lisp-implementations '((sbcl  ("vend" "repl" "sbcl")  :coding-system utf-8-unix)
+                                    (ecl   ("vend" "repl" "ecl")   :coding-system utf-8-unix)
+                                    (abcl  ("vend" "repl" "abcl")  :coding-system utf-8-unix)
+                                    (clasp ("vend" "repl" "clasp") :coding-system utf-8-unix))))
